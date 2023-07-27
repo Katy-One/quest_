@@ -1,0 +1,17 @@
+button {
+	background: none;
+	border: none;
+	position: relative;
+	z-index: 3;
+}
+
+.header-wrapper {
+	display: flex;
+	align-items: center;
+	padding: 10px;
+}
+
+.wrapper-logo {
+	width: 150px;
+	margin: 0 auto;
+}

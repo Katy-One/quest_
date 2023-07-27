@@ -1,0 +1,54 @@
+<div class="wrapper-team">
+	<div class="flex-layout wrapper-heading">
+		<h1>{{ title }}</h1>
+		<button
+			mat-raised-button
+			class="create-btn"
+			(click)="openCreateDialog.emit()">
+			{{ btnText }}
+		</button>
+	</div>
+	<div class="wrapper-team-list">
+		<div
+			class="flex-layout wrapper-row"
+			*ngFor="let item of listArr$; let i = index">
+			<span class="number">{{ i + 1 }}</span>
+
+			<div class="flex-layout team-row">
+				<a
+					*ngIf="url; else withoutUrl"
+					[routerLink]="['/' + url + '/' + item.id]">
+					<p>{{ item.gameName }}</p>
+				</a>
+				<ng-template #withoutUrl>
+					<p>{{ item.username }}</p>
+				</ng-template>
+				<div class="wrapper-button">
+					<button>
+						<mat-icon
+							class="status"
+							[ngClass]="{ active: item.isActive }"
+							aria-hidden="false"
+							fontIcon="circle"></mat-icon>
+					</button>
+
+					<button
+						*ngIf="!url"
+						(click)="openEditDialog.emit(item)">
+						<mat-icon
+							class="edit"
+							aria-hidden="false"
+							fontIcon="edit"></mat-icon>
+					</button>
+					<button>
+						<mat-icon
+							class="delete"
+							aria-hidden="false"
+							fontIcon="delete"
+							(click)="emitDelete.emit(item.id)"></mat-icon>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,7 @@
+<app-main-admin-screen
+	[listArr$]="games$ | async"
+	[title]="'Games'"
+	[btnText]="'New game'"
+	[url]="url"
+	(openCreateDialog)="openCreateGameDialog()"
+	(emitDelete)="onDeleteGame($event)"></app-main-admin-screen>

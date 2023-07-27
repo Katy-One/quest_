@@ -1,0 +1,109 @@
+<div
+	*ngIf="game$ | async as game"
+	class="wrapper-single-game">
+	<div class="game-info">
+		<div class="wrapper-row">
+			<h2>name game:</h2>
+			<span>{{ game?.gameName }}</span>
+		</div>
+		<div class="wrapper-row">
+			<h2>author:</h2>
+			<span>{{ game?.author }}</span>
+		</div>
+		<div class="wrapper-row">
+			<h2>status:</h2>
+			<span>{{ isActive }}</span>
+		</div>
+	</div>
+	<div class="wrapper-buttons">
+		<button
+			mat-raised-button
+			[disabled]="isActive"
+			(click)="onUpdateStatusGame(game.id)">
+			Activate game
+		</button>
+		<button
+			mat-raised-button
+			[disabled]="!isActive"
+			(click)="onDeactivateGame(game.id)">
+			Deactivate
+		</button>
+	</div>
+	<div class="flex-layout wrapper-heading">
+		<h2>Teams</h2>
+		<button
+			mat-raised-button
+			class="create-btn"
+			[disabled]="isActive"
+			(click)="addTeam(game.id)">
+			New team
+		</button>
+	</div>
+	<div class="wrapper-item">
+		<div
+			*ngFor="let team of game.users; let i = index"
+			class="wrapper-team flex-layout">
+			<h3>{{ i + 1 }}. {{ team.username }}</h3>
+			<div class="wrapper-button">
+				<button
+					[disabled]="isActive"
+					(click)="onDeleteTeam(game.id, team.id)">
+					<mat-icon
+						class="delete"
+						fontIcon="delete"></mat-icon>
+				</button>
+			</div>
+		</div>
+	</div>
+	<div class="flex-layout wrapper-heading">
+		<h2>Tasks</h2>
+		<button
+			mat-raised-button
+			class="create-btn"
+			[disabled]="isActive"
+			(click)="openCreateTaskDialog(game.id)">
+			New task
+		</button>
+	</div>
+	<div class="wrapper-item">
+		<div
+			*ngFor="let task of game.tasks; let i = index"
+			class="wrapper-teams flex-layout">
+			<span></span>
+			<h3>{{ i + 1 }}. {{ task.taskName }}</h3>
+			<div class="wrapper-button">
+				<button
+					[disabled]="isActive"
+					(click)="onUpdateTask(task)">
+					<mat-icon
+						class="edit"
+						fontIcon="edit"></mat-icon>
+				</button>
+				<button
+					[disabled]="isActive"
+					(click)="onDeleteTask(task.id)">
+					<mat-icon
+						class="delete"
+						fontIcon="delete"></mat-icon>
+				</button>
+			</div>
+		</div>
+	</div>
+	<div>
+		<div class="flex-layout wrapper-heading">
+			<h2>Finished message:</h2>
+		</div>
+		<form action="">
+			<div class="flex-layout">
+				<textarea #message>{{ game.finalMessage }}</textarea>
+				<button
+					mat-raised-button
+					class="submit-btn"
+					[disabled]="isActive"
+					(click)="onUpdateMessageGame(game.id, message.value)">
+					Send
+				</button>
+			</div>
+		</form>
+	</div>
+</div>

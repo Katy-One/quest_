@@ -1,0 +1,72 @@
+@import '../../../../assets/scss/variables.scss';
+.wrapper-single-game {
+	color: white;
+
+	padding: 30px;
+}
+.game-info {
+	text-align: center;
+}
+.flex-layout {
+	align-items: center;
+	display: flex;
+}
+.wrapper-buttons {
+	button {
+		background: #151515;
+		border: 1px solid $base-content;
+		color: $base-color;
+		width: 120px;
+		font-size: 16px;
+		height: 40px;
+		border-radius: 5px;
+		width: 50%;
+	}
+}
+.wrapper-row {
+	border-width: 0 0 6px;
+	border-style: double;
+	border-color: $base-color;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 10px;
+
+	span {
+		display: block;
+		font-style: italic;
+		font-size: 18px;
+		margin-left: 5px;
+	}
+	&:last-of-type {
+		margin-bottom: 30px;
+	}
+}
+
+h2 {
+	font-size: 18px;
+	margin: 0;
+	font-weight: 400;
+}
+
+h3 {
+	font-weight: 400;
+	font-size: 16px;
+}
+
+.wrapper-heading {
+	padding: 50px 0 0;
+	h2 {
+		border-width: 0 0 6px;
+		border-style: double;
+		border-color: $base-color;
+		display: inline-block;
+	}
+}
+
+.wrapper-item {
+	background: #00000082;
+	padding: 15px;
+	border: 6px double $base-color;
+	border-radius: 5px;
+}

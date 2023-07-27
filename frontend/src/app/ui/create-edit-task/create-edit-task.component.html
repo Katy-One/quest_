@@ -1,0 +1,91 @@
+<h1>Create Task</h1>
+<div class="wrapper-form">
+	<form
+		[formGroup]="taskForm"
+		(ngSubmit)="onSubmit()">
+		<div class="wrapper-field">
+			<mat-form-field appearance="fill">
+				<mat-label>Task name</mat-label>
+				<input
+					matInput
+					formControlName="taskName"
+					type="texts" />
+			</mat-form-field>
+		</div>
+		<div class="wrapper-field">
+			<mat-form-field appearance="fill">
+				<mat-label>Answer format</mat-label>
+				<input
+					matInput
+					formControlName="answerFormat"
+					type="texts" />
+			</mat-form-field>
+		</div>
+		<div class="wrapper-field">
+			<mat-form-field appearance="fill">
+				<mat-label>Description</mat-label>
+				<textarea
+					matInput
+					formControlName="description"
+					type="texts"></textarea>
+			</mat-form-field>
+		</div>
+		<div class="wrapper-field">
+			<mat-form-field appearance="fill">
+				<mat-label>Correct answer</mat-label>
+				<input
+					matInput
+					formControlName="correctAnswer"
+					type="texts" />
+			</mat-form-field>
+		</div>
+
+		<div class="wrapper-field">
+			<mat-form-field appearance="fill">
+				<mat-label>Order Task</mat-label>
+				<input
+					matInput
+					formControlName="order"
+					type="texts" />
+			</mat-form-field>
+		</div>
+		<button
+			mat-mini-fab
+			(click)="addHint()">
+			<mat-icon class="add-course-btn">add hint</mat-icon>
+		</button>
+		<div
+			formArrayName="hints"
+			*ngFor="let hintForm of hints.controls; let i = index">
+			<div
+				class="wrapper-field"
+				[formGroupName]="i">
+				<mat-form-field appearance="fill">
+					<mat-label>Hint({{ i + 1 }})</mat-label>
+					<input
+						matInput
+						formControlName="hintDescription"
+						type="texts" />
+				</mat-form-field>
+				<mat-form-field appearance="fill">
+					<mat-label>Hint time appear({{ i + 1 }})</mat-label>
+					<input
+						matInput
+						formControlName="timeAppear"
+						type="texts" />
+				</mat-form-field>
+				<mat-icon
+					class="delete-btn"
+					(click)="deleteHint(i)">
+					delete_forever</mat-icon
+				>
+			</div>
+		</div>
+
+		<button
+			mat-raised-button
+			class="submit-btn">
+			Save
+		</button>
+	</form>
+</div>

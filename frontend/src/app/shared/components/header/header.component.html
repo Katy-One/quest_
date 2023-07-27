@@ -1,0 +1,21 @@
+<div class="header-wrapper">
+	<div class="bar">
+		<button
+			class="button"
+			(click)="toggleOpen()">
+			<app-burger [open]="open"></app-burger>
+		</button>
+
+		<app-menu
+			class="menu"
+			[expanded]="open"
+			[links]="links"
+			(linkClick)="toggleOpen()">
+		</app-menu>
+	</div>
+	<div class="wrapper-logo">
+		<img
+			src="../../../../assets/images/quest-logo.png"
+			alt="quest-logo" />
+	</div>
+</div>

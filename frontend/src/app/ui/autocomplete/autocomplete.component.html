@@ -1,0 +1,28 @@
+<form
+	[formGroup]="form"
+	(ngSubmit)="onSubmit()">
+	<mat-form-field>
+		<input
+			type="text"
+			placeholder="Enter Location"
+			formControlName="teamName"
+			matInput
+			[matAutocomplete]="auto" />
+		<mat-autocomplete
+			#auto="matAutocomplete"
+			[displayWith]="displayContactFn">
+			<mat-option
+				*ngFor="let option of filteredOptions | async"
+				[value]="option">
+				{{ option.username }}
+			</mat-option>
+		</mat-autocomplete>
+		<mat-error *ngIf="teamName.invalid">choose team name from option</mat-error>
+	</mat-form-field>
+	<button
+		[disabled]="!teamName.valid"
+		mat-raised-button
+		class="submit-btn">
+		Save
+	</button>
+</form>

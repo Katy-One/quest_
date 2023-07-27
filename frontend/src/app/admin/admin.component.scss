@@ -1,0 +1,10 @@
+@import '../../assets/scss/variables.scss';
+:host {
+	display: block;
+}
+
+.admin-wrapper {
+	min-height: 100%;
+	background: #000 url('../../assets/images/pexels-photo-4111312.webp') no-repeat center;
+	background-size: cover;
+}

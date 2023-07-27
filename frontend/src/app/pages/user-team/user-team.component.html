@@ -1,0 +1,46 @@
+<div class="wrapper-user-team">
+	<app-header></app-header>
+	<div class="container">
+		<h1>
+			{{ (user$ | async)?.username }}
+		</h1>
+		<ng-container *ngIf="statusGame$ | async">
+			{{ statusGame$ | async }}
+			<button
+				mat-raised-button
+				class="start-game-btn"
+				(click)="onStartGame()">
+				Start game
+			</button>
+		</ng-container>
+		<ng-container *ngIf="task$ | async as task">
+			<div class="wrapper-form"></div>
+
+			<form
+				[formGroup]="gameForm"
+				(ngSubmit)="onSubmit()">
+				<mat-label>Question:</mat-label>
+				<div class="wrapper-paragraph">
+					<p>{{ task.description }}</p>
+				</div>
+				<div class="wrapper-field">
+					<mat-form-field appearance="fill">
+						<mat-label>Enter your answer</mat-label>
+						<input
+							matInput
+							formControlName="answer"
+							type="texts" />
+						<mat-hint> {{ task.answerFormat }}</mat-hint>
+						<!-- <mat-error *ngIf="name.invalid"> game name is required</mat-error> -->
+					</mat-form-field>
+				</div>
+
+				<button
+					mat-raised-button
+					class="submit-btn">
+					Send
+				</button>
+			</form>
+		</ng-container>
+	</div>
+</div>

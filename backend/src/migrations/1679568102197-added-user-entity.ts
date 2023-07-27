@@ -1,0 +1,16 @@
+import { MigrationInterface, QueryRunner } from "typeorm";
+
+export class addedUserEntity1679568102197 implements MigrationInterface {
+    name = 'addedUserEntity1679568102197'
+
+    public async up(queryRunner: QueryRunner): Promise<void> {
+        await queryRunner.query(`ALTER TABLE "user_game" ADD "taskId" uuid`);
+        await queryRunner.query(`ALTER TABLE "user_game" ADD CONSTRAINT "FK_3c152ce0c89dcc15e521ebc49cd" FOREIGN KEY ("taskId") REFERENCES "game"("id") ON DELETE CASCADE ON UPDATE NO ACTION`);
+    }
+
+    public async down(queryRunner: QueryRunner): Promise<void> {
+        await queryRunner.query(`ALTER TABLE "user_game" DROP CONSTRAINT "FK_3c152ce0c89dcc15e521ebc49cd"`);
+        await queryRunner.query(`ALTER TABLE "user_game" DROP COLUMN "taskId"`);
+    }
+
+}

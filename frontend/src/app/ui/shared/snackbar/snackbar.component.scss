@@ -1,0 +1,17 @@
+::ng-deep {
+	.mdc-snackbar.successful {
+		background: #ffffff;
+		margin: 8px 0;
+		--mdc-snackbar-container-color: none;
+	}
+
+	.error {
+		background: #e53935;
+		margin: 8px 0;
+	}
+}
+h3 {
+	text-align: center;
+	color: #000;
+	margin: 0;
+}

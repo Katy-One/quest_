@@ -1,0 +1,44 @@
+:host {
+	height: 100%;
+	display: block;
+}
+
+.wrapper-user-team {
+	height: 100%;
+	background: url(../../../assets/images/mysterious-dark-background.jpg) no-repeat center;
+	background-size: cover;
+}
+.wrapper-logo {
+	width: 180px;
+	margin: 0 auto;
+	padding: 10px 0;
+	box-sizing: border-box;
+}
+p {
+	margin: 0;
+	color: white;
+}
+
+.container {
+	padding: 0 15px;
+}
+
+h1 {
+	font-size: 22px;
+	font-weight: 400;
+}
+
+.start-game-btn {
+	margin-bottom: 15px;
+}
+.start-game-btn,
+.submit-btn {
+	width: 100%;
+}
+.wrapper-paragraph {
+	margin-bottom: 10px;
+}
+.mat-mdc-form-field {
+	width: 100%;
+	margin-bottom: 10px;
+}

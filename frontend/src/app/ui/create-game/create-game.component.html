@@ -1,0 +1,22 @@
+<div class="wrapper-form">
+	<form
+		[formGroup]="gameForm"
+		(ngSubmit)="onSubmit()">
+		<div class="wrapper-field">
+			<mat-form-field appearance="fill">
+				<mat-label>Enter your game name</mat-label>
+				<input
+					matInput
+					formControlName="name"
+					type="texts" />
+				<mat-error *ngIf="name.invalid"> game name is required</mat-error>
+			</mat-form-field>
+		</div>
+
+		<button
+			mat-raised-button
+			class="submit-btn">
+			Send
+		</button>
+	</form>
+</div>

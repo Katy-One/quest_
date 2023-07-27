@@ -1,0 +1,7 @@
+<app-main-admin-screen
+	[listArr$]="teams$ | async"
+	[title]="'Teams'"
+	[btnText]="'New team'"
+	(openCreateDialog)="openCreateTeamDialog()"
+	(openEditDialog)="openEditTeamDialog($event)"
+	(emitDelete)="onDeleteTeam($event)"></app-main-admin-screen>

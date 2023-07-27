@@ -1,0 +1,97 @@
+@use '@angular/material' as mat;
+@include mat.core();
+
+$quest-primary: mat.define-palette(mat.$gray-palette);
+$quest-accent: mat.define-palette(mat.$light-green-palette, A200, A100, A400);
+
+$quest-warn: mat.define-palette(mat.$red-palette);
+
+$quest-theme: mat.define-light-theme(
+	(
+		color: (
+			primary: $quest-primary,
+			accent: $quest-accent,
+			warn: $quest-warn,
+		),
+	)
+);
+
+@include mat.all-component-themes($quest-theme);
+@import './assets/scss/variables.scss';
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	color: #ffffff;
+	font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+img {
+	max-width: 100%;
+	vertical-align: top;
+}
+:host {
+	height: 100%;
+	display: block;
+}
+
+button {
+	cursor: pointer;
+}
+app-admin-layout {
+	height: 100%;
+}
+
+.wrapper-heading {
+	margin-bottom: 20px;
+
+	h1,
+	h2 {
+		margin: 0;
+		color: $base-color;
+		border-bottom: 1px solid $base-color;
+		text-transform: uppercase;
+		font-weight: normal;
+		font-size: 25px;
+	}
+	&.flex-layout {
+		display: flex;
+		width: 100%;
+		justify-content: space-between;
+		align-items: center;
+	}
+}
+body {
+	.create-btn.mat-mdc-raised-button,
+	.submit-btn.mat-mdc-raised-button,
+	.start-game-btn.mat-mdc-raised-button {
+		background: #151515;
+		border: 1px solid $base-color;
+		color: $base-color;
+		// width: 120px;
+		font-size: 16px;
+	}
+	.wrapper-buttons button.mat-mdc-raised-button[disabled],
+	button.mat-mdc-raised-button[disabled] {
+		color: #dab66b6b;
+		border-color: #dab66b6b;
+	}
+}
+
+.wrapper-button {
+	button {
+		border-radius: 50%;
+		width: 30px;
+		height: 30px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0;
+		border: none;
+		margin: 0 0 0 4px;
+	}
+}

@@ -1,0 +1,17 @@
+<div
+	class="wrapper-menu"
+	[@state]="expanded">
+	<ul class="list">
+		<li
+			class="item"
+			*ngFor="let link of links">
+			<a
+				[routerLink]="['/' + link.path]"
+				(click)="linkClick.emit()"
+				class="link">
+				{{ link.nameLink }}
+			</a>
+		</li>
+	</ul>
+	<app-logout-btn></app-logout-btn>
+</div>

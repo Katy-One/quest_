@@ -1,0 +1,30 @@
+.flex-layout {
+	display: flex;
+	height: 100%;
+	align-items: center;
+	justify-content: center;
+}
+
+.wrapper-404 {
+	text-align: center;
+}
+
+h1 {
+	font-size: 56px;
+	line-height: 1;
+	letter-spacing: -0.4px;
+	color: #62bb46;
+	margin-bottom: 10px;
+	font-weight: 900;
+}
+
+p {
+	font-size: 20px;
+	line-height: 1.2;
+}
+
+@media (max-width: 959px) {
+	.wrapper-404 {
+		padding: 100px 10px 0;
+	}
+}
